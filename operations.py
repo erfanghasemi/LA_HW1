@@ -1,52 +1,3 @@
-<<<<<<< HEAD
-def det_nonzero_coulmn(matrix, coulmns, rows):
-    for i in range(coulmns):
-        for j in range(rows):
-            if matrix[j][i] != 0:
-                return i
-
-
-def sel_pivet_position(matrix, pivet_coulmn, rows):
-    for i in range(rows):
-        if matrix[i][pivet_coulmn] != 0:
-            return i
-
-
-def interchange_rows(matrix, coulmns, first_row, second_row):
-    temp_row = []
-    for i in range(coulmns):
-        temp_row.append(matrix[first_row][i])
-        matrix[first_row][i] = matrix[second_row][i]
-        matrix[second_row][i] = temp_row[i]
-
-
-# def row_replacements_U(matrix, coulmns, rows, pivet_row, pivet_coulmn):
-#     for i in range(pivet_row):
-#         scale = (-1) * (matrix[pivet_row][pivet_coulmn] / matrix[i][pivet_coulmn])
-#         for j in range(coulmns):
-#             matrix[i][j] = (scale * matrix[i][j]) + matrix[pivet_row][j]
-
-
-def row_replacements_D(matrix, coulmns, rows, pivet_row, pivet_coulmn):
-    for i in range(pivet_row + 1, rows):
-        scale = (-1) * (matrix[pivet_row][pivet_coulmn] / matrix[i][pivet_coulmn])
-        # print(scale)
-        for j in range(coulmns):
-            matrix[i][j] = (scale * matrix[i][j]) + matrix[pivet_row][j]
-
-
-def sacle_row(matrix, coulmns, pivet_row, pivet_coulmn):
-    for i in range(coulmns):
-        matrix[pivet_row][i] = matrix[pivet_row][i] / matrix[pivet_row][pivet_coulmn]
-
-
-def det_end_operation(matrix, coulmns, rows):
-    for i in range(rows):
-        for j in range(coulmns):
-            if matrix[i][j] != 0:
-                return 0
-    return 1
-=======
 def display_matrix(matrix, size):      # function for display a matrix from 2D array
     for row in range(size):
         for column in range(size+1):
@@ -105,4 +56,3 @@ def row_replacements_backward(matrix, size, pivot_row, pivot_column):      # thi
         print("Row Replacement backward Operation In Column %d By Scale size ( %1.2f ) For Row : %d  ---> \n\n" % (pivot_column+1, scale, row+1))
         display_matrix(matrix, size)
     return matrix
->>>>>>> calculate row echelon matrix added.
